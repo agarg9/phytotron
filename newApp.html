@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="phytotron">
+
+<head>
+    <meta charset="utf-8">
+    <title>Phytotron User</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <div class="container-fluid">
+        <script type="text/javascript" src="js/angular.min.js"></script>
+        <script type="text/javascript" src="js/app.js"></script>
+        <h1 class="text-center">Dashboard</h1>
+        <div class="form-group">
+            <ul class="nav nav-tabs">
+                <li><a href="index.html">New/Saved Application</a></li>
+                <li class="active"><a href="newApp.html">New App(Temp)</a></li>
+                <li><a href="#">Extend/Revise Application</a></li>
+                <li><a href="#">Application History</a></li>
+                <li><a href="#">Assigned Chambers</a></li>
+                <li><a href="#">Project History</a></li>
+            </ul>
+        </div>
+        <form class="form-horizontal" role="form">
+            <div class="form-group">
+                <label for="projectTitle" class="col-sm-2 ">Project Title</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="projectTitle" placeholder="Enter Project Title">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="applicant" class="col-sm-1">Applicant</label>
+                <label for="name" class="col-sm-1 text-right">Name:</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" id="name" placeholder="Enter full name">
+                </div>
+
+                <!--label for="firstName" class="col-sm-1">first Name:</label>
+                <div class="col-sm-1">
+                    <input type="text" class="form-control" id="firstName" placeholder="First name">
+                </div>
+                <label for="lastName" class="col-sm-1">Last Name:</label>
+                <div class="col-sm-1">
+                    <input type="text" class="form-control" id="lastName" placeholder="Enter Project Title">
+                </div -->
+                <label for="email" class="col-sm-1 text-right">Email Id:</label>
+                <div class="col-sm-2">
+                    <input type="email" class="form-control" id="email" placeholder="Email ID">
+                </div>
+                <label for="department" class="col-sm-1 text-right">Department:</label>
+                <div class="col-sm-2">
+                    <select class="form-control" id="department">
+                        <option>Computer Science</option>
+                        <option>Computer Engineering</option>
+                        <option>Phytotron</option>
+                        <option>Misc</option>
+                    </select>
+                </div>
+                <div class="col-sm-1">
+                    <button type="button" class="btn btn-default addButton"><i class="fa fa-plus">+</i></button>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="pi" class="col-sm-1">PI</label>
+                <label for="name" class="col-sm-1 text-right">Name:</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" id="name" placeholder="Enter full name">
+                </div>
+
+                <!--label for="firstName" class="col-sm-1">first Name:</label>
+                <div class="col-sm-1">
+                    <input type="text" class="form-control" id="firstName" placeholder="First name">
+                </div>
+                <label for="lastName" class="col-sm-1">Last Name:</label>
+                <div class="col-sm-1">
+                    <input type="text" class="form-control" id="lastName" placeholder="Enter Project Title">
+                </div -->
+                <label for="email" class="col-sm-1 text-right">Email Id:</label>
+                <div class="col-sm-2">
+                    <input type="email" class="form-control" id="email" placeholder="Email ID">
+                </div>
+                <label for="department" class="col-sm-1 text-right">Department:</label>
+                <div class="col-sm-2">
+                    <select class="form-control" id="department">
+                        <option>Computer Science</option>
+                        <option>Computer Engineering</option>
+                        <option>Phytotron</option>
+                        <option>Misc</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group text-center ">
+                <button type="submit" class="btn btn-primary">Add Personnel</button>
+            </div>
+            <div class="form-group">
+                <label for="startdate" class="col-sm-2 text-right">Start Date</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" id="startdate" placeholder="Project Start Date">
+                </div>
+                <label for="enddate" class="col-sm-1 text-right">End Date</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" id="enddate" placeholder="Project End Date">
+                </div>
+            </div>
+            <p><strong>Experimental Conditions:</strong></p>
+
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped table-highlight">
+                    <thead>
+                        <th>Lights On</th>
+                        <th>Day Temp(C)</th>
+                        <th>Lights off</th>
+                        <th>Night Temp(C)</th>
+                        <th>Night Interrupt</th>
+                        <th>Number of pots</th>
+                        <th>Container Size</th>
+                        <th>Space</th>
+                        <th>Watering</th>
+                        <th>Species</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <input type="text" class="form-control" placeholder="Enter Time" />
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" placeholder="Temperature" />
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" placeholder="Enter Time" />
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" placeholder="Temperature" />
+                            </td>
+                            <td class="text-center">
+                                <input type="checkbox" class="" value="" />
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" value="some val" />
+                            </td>
+                            <td>
+                                <select class="form-control">
+                                    <option>Monthly</option>
+                                    <option>Yearly</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="form-control">
+                                    <option>Monthly</option>
+                                    <option>Yearly</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="form-control">
+                                    <option>Monthly</option>
+                                    <option>Yearly</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="form-control">
+                                    <option>Monthly</option>
+                                    <option>Yearly</option>
+                                </select>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <input type="text" class="form-control" placeholder="Enter Time" />
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" placeholder="Temperature" />
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" placeholder="Enter Time" />
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" placeholder="Temperature" />
+                            </td>
+                            <td class="text-center">
+                                <input type="checkbox" class="" value="" />
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" value="some val" />
+                            </td>
+                            <td>
+                                <select class="form-control">
+                                    <option>Monthly</option>
+                                    <option>Yearly</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="form-control">
+                                    <option>Monthly</option>
+                                    <option>Yearly</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="form-control">
+                                    <option>Monthly</option>
+                                    <option>Yearly</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="form-control">
+                                    <option>Monthly</option>
+                                    <option>Yearly</option>
+                                </select>
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-default  addButton"><i class="fa fa-plus">+</i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="form-group col-sm-12">
+                <label class="col-sm-1">Substrate</label>
+                <div class="col-sm-1 text-center">
+                    <input type="checkbox" value="std">std
+                    <!--div class="checkbox">
+                    <label>
+                        <input type="checkbox"> Remember me</label>
+                </div-->
+                </div>
+                <div class="col-sm-1 text-center">
+                    <input type="checkbox" value="50/50">50/50
+                </div>
+                <div class="col-sm-1 text-Center no-wrap">
+                    <input type="checkbox" value="Other">Other
+                </div>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" id="other" placeholder="Enter detail">
+                </div>
+            </div>
+            <p>
+                <strong>Transgenic Plant Research Biosafety Verification</strong>
+            </p>
+            <div class="form-group">
+
+            </div>
+        </form>
+
+        <!--form class="form-inline">
+            <div class="form-group">
+                <label for="exampleInputName2">Name</label>
+                <input type="text" class="form-control" id="exampleInputName2" placeholder="Jane Doe">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail2">Email</label>
+                <input type="email" class="form-control" id="exampleInputEmail2" placeholder="jane.doe@example.com">
+            </div>
+            <button type="submit" class="btn btn-primary">Send invitation</button>
+        </form-->
+    </div>
+</body>
+
+</html>
