@@ -9,66 +9,81 @@
 </head>
 
 <body>
+    
     <div class="container-fluid">
-        <script type="text/javascript" src="js/angular.min.js"></script>
-        <script type="text/javascript" src="js/app.js"></script>
-        <div>
-            <h2 class="text-center">Dashboard</h2>
-            <ul class="nav nav-tabs">
-                <li class="active"><a href="#">New/Saved Application</a></li>
-                <li><a href="newApp.html">New App(Temp)</a></li>
-                <li><a href="#">Extend/Revise Application</a></li>
-                <li><a href="#">Application History</a></li>
-                <li><a href="#">Assigned Chambers</a></li>
-                <li><a href="#">Project History</a></li>
-            </ul>
-        </div>
-        <div class="table-responsive">
-            <table class="table table-stripped">
-                <thead>
-                    <tr>
-                        <th>Project ID</th>
-                        <th>Project Title</th>
-                        <th>Last Updated</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <form>
-                        <tr>
-                            <td>
-                                <div class="radio">
-                                    <label>
-                                        <input type="radio" id="599861" name="projectList"> 599861
-                                    </label>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="radiotext">Sample Project 1</div>
-                            </td>
-                            <td>9/24/16</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="radio">
-                                    <label>
-                                        <input type="radio" id="88473" name="projectList"> JNE
-                                    </label>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="radiotext">
-                                    <label for="88473">Sample Project 2</label>
-                                </div>
-                            </td>
-                            <td>4/23/16</td>
-                        </tr>
-                    </form>
-                </tbody>
-            </table>
-            <button type="button" class="btn btn-info">New Application</button>
-            <button type="button" class="btn btn-info">Edit Application</button>
-        </div>
+
+        <header>
+            <nav class="navbar-inverse navbar-fixed-top form-group" role="banner">
+                <div class="container">
+                    <!--                <nav role="navigation">-->
+
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header col-sm-12">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="/">NCSU Phytotron</a>
+                    </div>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li  class="active"><a href="#/home">Application <span class="sr-only">(current)</span></a></li>
+<!--                            <li><a href="#/home">New App(Temp)</a></li>-->
+                            <li><a href="#/revise">Revise Application</a></li>
+                            <li><a href="#/history">Application History</a></li>
+<!--                            <li><a href="#">Project History</a></li>-->
+                            <li><a href="#/chambers">Chambers</a></li>
+<!--
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Action</a></li>
+                                    <li><a href="#">Another action</a></li>
+                                    <li><a href="#">Something else here</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="#">Separated link</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="#">One more separated link</a></li>
+                                </ul>
+                            </li>
+-->
+                        </ul>
+                        <!--ul class="nav navbar-nav navbar-right">
+                            <li><a href="#">Link</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Action</a></li>
+                                    <li><a href="#">Another action</a></li>
+                                    <li><a href="#">Something else here</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="#">Separated link</a></li>
+                                </ul>
+                            </li>
+                        </ul-->
+                    </div>
+                    <!-- /.navbar-collapse -->
+                    <!-- /.container-fluid -->
+                    <!--                </nav>-->
+                </div>
+            </nav>
+        </header>
     </div>
+    <!--<p>{{8+8}}</p>
+    <div ng-controller="phyController as phy">
+        <h3>Product Name: {{phy.project.name}}</h3>
+        <h3>Product price: {{phy.project.price}}</h3>
+    </div>
+    -->
+    <ng-view></ng-view>
+    
+    
+    <script src="js/angular.min.js"></script>
+    <script type="text/javascript" src="js/angular-route.min.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
 </body>
 
 </html>
