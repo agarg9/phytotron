@@ -78,8 +78,37 @@
         <h3>Product price: {{phy.project.price}}</h3>
     </div>
     -->
+
     <ng-view></ng-view>
     
+<!--
+        <div ng-controller="applicationController">
+    {{message}}: Name and info : {{emp.name}} + {{savedAppList.title[0]}}
+            <table class="table table-striped table-condensed table-hover">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Date Start</th>
+                    <th>Date End</th>
+                    <th>Last Modified</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><a href="#">This is sample project for test</a></td>
+                    <td>3/21/2015</td>
+                    <td>3/25/2015</td>
+                    <td>3/25/2015 17:23:53</td>
+                </tr>
+                <tr ng-repeat="savedApp in savedApps">
+                    <td><a href="#">{{savedApp.title}}</a></td>
+                    <td>{{savedApp.start}}</td>
+                    <td>{{savedApp.end}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+-->
     
     <script src="js/angular.min.js"></script>
     <script type="text/javascript" src="js/angular-route.min.js"></script>
