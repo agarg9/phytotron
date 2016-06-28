@@ -6,29 +6,31 @@
         </div>
     </div>
     <div class="form-group">
-        <label for="applicant" class="col-sm-1">Applicant</label>
-        <label for="nameApplicant" class="col-sm-1 text-right">Name:</label>
-        <div class="col-sm-3">
-            <input type="text" class="form-control" id="nameApplicant" ng-model="appForm.nameApplicant" placeholder="Enter full name" required>
-        </div>
-
-        <label for="emailApplicant" class="col-sm-1 text-right">Email Id:</label>
-        <div class="col-sm-2">
-            <input type="email" class="form-control" id="emailApplicant" ng-model="appForm.emailApplicant" placeholder="Email ID" required>
-        </div>
-        <label for="departmentApplicant" class="col-sm-1 text-right">Department:</label>
-        <div class="row col-sm-3">
-            <div class="col-sm-10">
-                <select class="form-control" id="departmentApplicant" ng-model="appForm.departmentApplicant" required>
-                    <option>Computer Science</option>
-                    <option>Computer Engineering</option>
-                    <option>Phytotron</option>
-                    <option>Misc</option>
-                </select>
+        <div ng-repeat="addInfo in appForm.applicantRow">
+            <label for="applicant" class="col-sm-1">Applicant</label>
+            <label for="nameApplicant" class="col-sm-1 text-right">Name:</label>
+            <div class="col-sm-3">
+                <input type="text" class="form-control" id="nameApplicant" ng-model="addInfo.nameApplicant" placeholder="Enter full name" required>
             </div>
 
-            <div class="col-sm-1">
-                <button type="button" class="col-sm-1 close" data-dismiss="modal">&times;</button>
+            <label for="emailApplicant" class="col-sm-1 text-right">Email Id:</label>
+            <div class="col-sm-2">
+                <input type="email" class="form-control" id="emailApplicant" ng-model="addInfo.emailApplicant" placeholder="Email ID" required>
+            </div>
+            <label for="departmentApplicant" class="col-sm-1 text-right">Department:</label>
+            <div class="row col-sm-3">
+                <div class="col-sm-10">
+                    <select class="form-control" id="departmentApplicant" ng-model="addInfo.departmentApplicant" ng-options="x for x in depts" required>
+                    </select>
+                </div>
+
+                <div class="col-sm-1">
+                    <button type="button" ng-click="deleteRow($index)" class="btn btn-default addButton"><i class="fa fa-minus"> -</i></button>
+                    <!--
+---Keeping the older button, the new button you added is not clickable.
+
+<button type="button" class="col-sm-1 close" ng-click="deleteRow($index)" data-dismiss="modal">&times;</button>-->
+                </div>
             </div>
         </div>
         <!--        <div class="col-sm-1">-->
@@ -59,7 +61,7 @@
         </div>
     </div>
     <div class="form-group text-center ">
-        <button type="submit" class="btn btn-primary">Add Personnel</button>
+        <button type="submit" ng-click="addAppRow()" class="btn btn-primary">Add Personnel</button>
     </div>
     <div class="form-group">
         <label for="startdate" class="col-sm-2 text-right">Start Date</label>
@@ -71,6 +73,7 @@
             <input type="date" class="form-control" id="enddate" ng-model="appForm.enddate" placeholder="Project End Date" required>
         </div>
     </div>
+    <hr>
     <p><strong>Experimental Conditions:</strong></p>
 
     <div class="table-responsive">
@@ -88,106 +91,63 @@
                 <th>Species</th>
             </thead>
             <tbody>
-                <tr>
+                <tr ng-repeat="expCon in appForm.experimentRow">
                     <td>
-                        <input type="text" class="form-control" placeholder="Enter Time" ng-model="appForm.lightOn" required/>
+                        <input type="text" class="form-control" placeholder="Enter Time" ng-model="expCon.lightOn" required/>
                     </td>
                     <td>
-                        <input type="number" class="form-control" placeholder="Temperature" ng-model="appForm.tempDay" required/>
+                        <input type="number" class="form-control" placeholder="Temperature" ng-model="expCon.tempDay" required/>
                     </td>
                     <td>
-                        <input type="text" class="form-control" placeholder="Enter Time" ng-model="appForm.lightOff" required />
+                        <input type="text" class="form-control" placeholder="Enter Time" ng-model="expCon.lightOff" required />
                     </td>
                     <td>
-                        <input type="number" class="form-control" placeholder="Temperature" ng-model="appForm.tempNight" required />
+                        <input type="number" class="form-control" placeholder="Temperature" ng-model="expCon.tempNight" required />
                     </td>
                     <td class="text-center">
-                        <input type="checkbox" class="" value="" ng-model="appForm.nightInterrupt"/>
+                        <input type="checkbox" class="" value="" ng-model="expCon.nightInterrupt" />
                     </td>
                     <td>
-                        <input type="text" class="form-control" value="" ng-model="appForm.potNumber" placeholder="pots" required />
+                        <input type="text" class="form-control" value="" ng-model="expCon.numOfPots" placeholder="pots" required />
                     </td>
                     <td>
-                        <select class="form-control" ng-model="appForm.containerSize" required >
+                        <select class="form-control" ng-model="expCon.containerSize" required>
                             <option>24</option>
                             <option>12</option>
                             <option>6</option>
                         </select>
                     </td>
                     <td>
-                        <select class="form-control" ng-model="appForm.potSpace" required >
+                        <select class="form-control" ng-model="expCon.potSpace" required>
                             <option>Large</option>
                             <option>Medium</option>
                             <option>Small</option>
                         </select>
                     </td>
                     <td>
-                        <select class="form-control" ng-model="appForm.watering" required >
+                        <select class="form-control" ng-model="expCon.watering" required>
                             <option>Schedule A</option>
                             <option>Schedule B</option>
                             <option>Schedule C</option>
                         </select>
                     </td>
                     <td>
-                        <select class="form-control" ng-model="appForm.species" required >
+                        <select class="form-control" ng-model="expCon.species" required>
                             <option>corn</option>
                             <option>Landfill</option>
                         </select>
                     </td>
-                </tr>
-            </tbody>
-            <tbody>
-                <tr>
                     <td>
-                        <input type="text" class="form-control" placeholder="Enter Time" />
-                    </td>
-                    <td>
-                        <input type="text" class="form-control" placeholder="Temperature" />
-                    </td>
-                    <td>
-                        <input type="text" class="form-control" placeholder="Enter Time" />
-                    </td>
-                    <td>
-                        <input type="text" class="form-control" placeholder="Temperature" />
-                    </td>
-                    <td class="text-center">
-                        <input type="checkbox" class="" value="" />
-                    </td>
-                    <td>
-                        <input type="text" class="form-control" value="some val" />
-                    </td>
-                    <td>
-                        <select class="form-control">
-                            <option>Monthly</option>
-                            <option>Yearly</option>
-                        </select>
-                    </td>
-                    <td>
-                        <select class="form-control">
-                            <option>Monthly</option>
-                            <option>Yearly</option>
-                        </select>
-                    </td>
-                    <td>
-                        <select class="form-control">
-                            <option>Monthly</option>
-                            <option>Yearly</option>
-                        </select>
-                    </td>
-                    <td>
-                        <select class="form-control">
-                            <option>Monthly</option>
-                            <option>Yearly</option>
-                        </select>
-                    </td>
-                    <td>
-                        <button type="button" class="btn btn-default  addButton"><i class="fa fa-plus">+</i></button>
+                        <button type="button" ng-click="deleteExpRow($index)" class="btn btn-default addButton"><i class="fa fa-minus"> -</i></button>
                     </td>
                 </tr>
             </tbody>
         </table>
     </div>
-
+    <div class="text-center ">
+        <button type="submit" ng-click="addProgram()" class="btn btn-primary">Add Program</button>
+    </div>
+    <hr>
     <div class="form-group">
         <div class="radio">
             <div class="col-sm-1 text-center">
@@ -222,7 +182,7 @@
             <Strong class="col-sm-5">Research uses transgenic plants:</Strong>
             <div class="col-sm-1 text-left">
                 <label>
-                    <input type="radio" value="yes" ng-model="appForm.safetyVerify" name="safetyVerify" required >yes
+                    <input type="radio" value="yes" ng-model="appForm.safetyVerify" name="safetyVerify" required>yes
                 </label>
             </div>
             <div class="col-sm-1 text-left">
@@ -264,7 +224,7 @@
         <p><small>I certify that all personnel associated with our research project being conducted in the North Carolina State University Phytotron, including technical staff, graduate students, undergraduate student assistants, post-doctoral associates and visiting research scientists, have received proper training in standard operating procedures of necessary equipment, in proper handling of any chemicals involved in the research, and in the rules and regulations regarding laboratory safety, and all necessary information has been disclosed on the Transgenic Plant Research Biosafety Verification page of this proposal.</small></p>
         <div class="radio col-sm-1">
             <label>
-                <input type="radio" value="agree" name="condition" ng-model="appForm.condition" required > Agree
+                <input type="radio" value="agree" name="condition" ng-model="appForm.condition" required> Agree
             </label>
         </div>
         <div class="radio col-sm-1">
@@ -279,7 +239,7 @@
             <div class="col-sm-2 text-center"><strong>Affilation:</strong></div>
             <div class="col-sm-1">
                 <label>
-                    <input type="radio" value="ncsu" name="affilation" ng-model="appForm.affilation" required > NCSU
+                    <input type="radio" value="ncsu" name="affilation" ng-model="appForm.affilation" required> NCSU
                 </label>
             </div>
             <div class="col-sm-1">

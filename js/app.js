@@ -66,15 +66,32 @@
                 product.appForm.push(this.appForm);
                 this.review={};
             }*/
-
+            $scope.depts = ["Computer Science", "Computer Engineering", "Phytotron", "Plant Bio"];
             var appForm = {
                 projectTitle: "",
-                nameApplicant: "",
-                emailApplicant: "",
-                departmentApplicant: "",
+                //nameApplicant: "",
+                //emailApplicant: "",
+                applicantRow:[{
+                    nameApplicant:"",
+                    emailApplicant:"",
+                    departmentApplicant:""
+                }],
+                //departmentApplicant: "",
                 namePI: "",
                 emailPI: "",
                 departmentPI: "",
+				experimentRow:[{
+					lightOn:"",
+					tempDay:"",
+					lightOff:"",
+					tempNight:"",
+					nightInterrupt:false,
+					numOfPots:"",
+					containerSize:"",
+					potSpace:"",
+					watering:"",
+					species:""
+				}],
                 startdate: "",
                 enddate: "",
                 substrate: "",
@@ -96,6 +113,37 @@
                 otherZip: ""
             }
             $scope.appForm = appForm;
+            $scope.addAppRow = function () {
+                $scope.appForm.applicantRow.push({
+                    nameApplicant:"",
+                    emailApplicant:"",
+                    departmentApplicant:""
+                });
+            };
+            $scope.deleteRow = function (index) {
+                    if ($scope.appForm.applicantRow.length > 1)
+                        $scope.appForm.applicantRow.splice(index, 1);
+                }
+			$scope.addProgram = function () {
+                $scope.appForm.experimentRow.push({
+                    lightOn:"",
+					tempDay:"",
+					lightOff:"",
+					tempNight:"",
+					nightInterrupt:false,
+					numOfPots:"",
+					containerSize:"",
+					potSpace:"",
+					watering:"",
+					species:""
+
+                });
+            };
+            $scope.deleteExpRow = function (index) {
+                if ($scope.appForm.experimentRow.length > 1) {
+                    $scope.appForm.experimentRow.splice(index, 1);
+                }
+            }
             $scope.list = [];
             $scope.submit = function () {
                 if ($scope.appForm) {
