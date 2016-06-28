@@ -219,6 +219,7 @@
         </label>
         <textarea class="form-control" rows="3" id="revision" ng-model="appForm.revision"></textarea>
     </div>
+    <hr>
     <div class="form-group col-sm-12 text-justify">
         <strong>Safety Training/Biosafety Verification</strong>
         <p><small>I certify that all personnel associated with our research project being conducted in the North Carolina State University Phytotron, including technical staff, graduate students, undergraduate student assistants, post-doctoral associates and visiting research scientists, have received proper training in standard operating procedures of necessary equipment, in proper handling of any chemicals involved in the research, and in the rules and regulations regarding laboratory safety, and all necessary information has been disclosed on the Transgenic Plant Research Biosafety Verification page of this proposal.</small></p>
@@ -236,61 +237,65 @@
     </div>
     <div class="form-group">
         <div class="radio">
-            <div class="col-sm-2 text-center"><strong>Affilation:</strong></div>
+            <div class="col-sm-2 text-center"><strong>Affiliation:</strong></div>
             <div class="col-sm-1">
                 <label>
-                    <input type="radio" value="ncsu" name="affilation" ng-model="appForm.affilation" required> NCSU
+                    <input type="radio" value="ncsu" id="ncsu" name="appForm.affiliation" ng-model="appForm.affiliation" required> NCSU
                 </label>
             </div>
             <div class="col-sm-1">
                 <label>
-                    <input type="radio" value="other" name="affilation" ng-model="appForm.affilation" required> Other
+                    <input type="radio" value="other" id="other" name="appform.affiliation" ng-model="appForm.affiliation" required> Other
                 </label>
             </div>
         </div>
     </div>
-    <div class="form-group">
-        <label for="accountNo" class="col-sm-3 text-right">Account number to be billed:
-        </label>
-        <div class="col-sm-2">
-            <input type="text" class="form-control" id="accountNo" ng-model="appForm.accountNo" placeholder="Account no." ng-required="appForm.affilation == 'ncsu'">
+    <div>
+        <div class="form-group" ng-show="appForm.affiliation=='ncsu'">
+            <label for="accountNo" class="col-sm-3 text-right">Account number to be billed:
+            </label>
+            <div class="col-sm-2">
+                <input type="text" class="form-control" id="accountNo" ng-model="appForm.accountNo" placeholder="Account no." ng-required="appForm.affiliation == 'ncsu'">
+            </div>
+            <label for="fundSource" class="col-sm-2 text-right">Source of funds</label>
+            <div class="col-sm-2">
+                <input type="text" class="form-control" id="fundSource" ng-model="appForm.fundSource" placeholder="Source" ng-required="appForm.affiliation == 'ncsu'">
+            </div>
         </div>
-        <label for="fundSource" class="col-sm-2 text-right">Source of funds</label>
-        <div class="col-sm-2">
-            <input type="text" class="form-control" id="fundSource" ng-model="appForm.fundSource" placeholder="Source" ng-required="appForm.affilation == 'ncsu'">
-        </div>
-    </div>
-    <p>For non-NCSU research please provide billing information below:</p>
-    <div class="form-group col-sm-12">
-        <label for="otherName" class="col-sm-1">Name:
-        </label>
-        <div class="col-sm-5">
-            <input type="text" class="form-control" id="otherName" ng-model="appForm.otherName" placeholder="Name" ng-required="appForm.affilation == 'other'">
-        </div>
-        <label for="otherEmail" class="col-sm-1 text-right">Email:</label>
-        <div class="col-sm-5">
-            <input type="email" class="form-control" id="otherEmail" ng-model="appForm.otherEmail" placeholder="Email id" ng-required="appForm.affilation == 'other'">
-        </div>
-    </div>
-    <div class="form-group col-sm-12">
-        <label for="otherStreet" class="col-sm-1">Street address:
-        </label>
-        <div class="col-sm-11">
-            <input type="text" class="form-control" id="otherStreet" ng-model="appForm.otherStreet" placeholder="Enter street address" ng-required="appForm.affilation == 'other'">
-        </div>
-    </div>
-    <div class="form-group col-sm-12">
-        <label for="otherCity" class="col-sm-1">City:</label>
-        <div class="col-sm-2">
-            <input type="text" class="form-control" id="otherCity" ng-model="appForm.otherCity" placeholder="City" ng-required="appForm.affilation == 'other'">
-        </div>
-        <label for="otherState" class="col-sm-1 text-right">State:</label>
-        <div class="col-sm-2">
-            <input type="text" class="form-control" id="otherState" ng-model="appForm.otherState" placeholder="State" ng-required="appForm.affilation == 'other'">
-        </div>
-        <label for="otherZip" class="col-sm-1 text-right">Zip:</label>
-        <div class="col-sm-2">
-            <input type="number" class="form-control" id="otherZip" ng-model="appForm.otherZip" placeholder="Zip code" ng-required="appForm.affilation == 'other'">
+        <div ng-show="appForm.affiliation=='other'">
+            <p>For non-NCSU research please provide billing information below:</p>
+            <div class="form-group col-sm-12">
+                <label for="otherName" class="col-sm-1">Name:
+                </label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" id="otherName" ng-model="appForm.otherName" placeholder="Name" ng-required="appForm.affiliation == 'other'">
+                </div>
+                <label for="otherEmail" class="col-sm-1 text-right">Email:</label>
+                <div class="col-sm-5">
+                    <input type="email" class="form-control" id="otherEmail" ng-model="appForm.otherEmail" placeholder="Email id" ng-required="appForm.affiliation == 'other'">
+                </div>
+            </div>
+            <div class="form-group col-sm-12">
+                <label for="otherStreet" class="col-sm-1">Street address:
+                </label>
+                <div class="col-sm-11">
+                    <input type="text" class="form-control" id="otherStreet" ng-model="appForm.otherStreet" placeholder="Enter street address" ng-required="appForm.affiliation == 'other'">
+                </div>
+            </div>
+            <div class="form-group col-sm-12">
+                <label for="otherCity" class="col-sm-1">City:</label>
+                <div class="col-sm-2">
+                    <input type="text" class="form-control" id="otherCity" ng-model="appForm.otherCity" placeholder="City" ng-required="appForm.affiliation == 'other'">
+                </div>
+                <label for="otherState" class="col-sm-1 text-right">State:</label>
+                <div class="col-sm-2">
+                    <input type="text" class="form-control" id="otherState" ng-model="appForm.otherState" placeholder="State" ng-required="appForm.affiliation == 'other'">
+                </div>
+                <label for="otherZip" class="col-sm-1 text-right">Zip:</label>
+                <div class="col-sm-2">
+                    <input type="number" class="form-control" id="otherZip" ng-model="appForm.otherZip" placeholder="Zip code" ng-required="appForm.affiliation == 'other'">
+                </div>
+            </div>
         </div>
     </div>
     <div class="form-group col-sm-6">
