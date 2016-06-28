@@ -35,7 +35,7 @@
                         </select>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary col-sm-2">Submit</button>
+                <button type="submit" class="btn btn-primary col-sm-2">Filter</button>
                 <!--
                         <div class="form-group col-sm-6">
                             <button type="button" class="btn btn-primary col-sm-4">Submit</button>
@@ -61,7 +61,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="savedApp in savedApps">
+                <tr ng-repeat="savedApp in savedApps| orderBy:sortColumn">
                     <td><a href="#">{{savedApp.title}}</a></td>
                     <td>{{savedApp.start}}</td>
                     <td>{{savedApp.end}}</td>

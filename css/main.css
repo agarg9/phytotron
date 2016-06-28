@@ -27,6 +27,9 @@ background-color: #222;
     padding: 8px 15px;
 }
 
+#historyTable th{
+    cursor: pointer;
+}
 
 .panel-custom {
     border-color: #337ab7

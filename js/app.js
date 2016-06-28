@@ -149,50 +149,63 @@
                 {
                     projectId: 558343,
                     projectTitle: "Sample Project 1",
-                    status: "submitted",
-                    submitDate: "4/1/2016",
+                    status: "Submitted",
+                    submitDate: "2016-04-04T21:43:40.000Z",
                     start: "4/3/2016",
                     end: "6/6/2016",
-                    lastModified: "3/25/2015 12:13"
+                    lastModified: "2016-01-28T05:22:43.000Z"
             },
                 {
-                    projectId: 558543,
+                    projectId: 558541,
                     projectTitle: "Sample Project 2",
                     status: "Approved",
-                    submitDate: "4/1/2016",
+                    submitDate: "2015-05-11T21:43:40.000Z",
                     start: "4/3/2016",
                     end: "6/6/2016",
-                    lastModified: "1/25/2016 10:23"
+                    lastModified: "2015-05-11T06:23:40.000Z"
             },
                 {
                     projectId: 550001,
-                    projectTitle: "My Project",
+                    projectTitle: "My Project A",
                     status: "Completed",
                     submitDate: "2015-11-21T21:43:40.000Z",
                     start: "4/3/2016",
                     end: "6/6/2016",
-                    lastModified: "3/11/2016 08:23"
+                    lastModified: "2015-11-08T21:23:40.000Z"
             },
                 {
                     projectId: 550034,
-                    projectTitle: "My Project",
+                    projectTitle: "Sample Project",
                     status: "Updated",
-                    submitDate: "4/4/2016",
+                    submitDate: "2015-06-11T21:43:40.000Z",
                     start: "11/2/2016",
                     end: "6/5/2017",
-                    lastModified: "10/10/2015 14:11"
+                    lastModified: "2016-12-08T01:13:21.400Z"
             },
                 {
-                    projectId: 501343,
+                    projectId: 501346,
                     projectTitle: "Testing",
                     status: "Pending",
-                    submitDate: "4/1/2016",
+                    submitDate: "2015-11-08T21:43:40.000Z",
                     start: "4/3/2016",
                     end: "6/6/2016",
-                    lastModified: "7/03/2016 17:05"
+                    lastModified: "2015-11-08T21:43:40.000Z"
             }
                         ];
             $scope.historyApps = historyApps;
+            $scope.sortColumn="projectTitle";
+            $scope.reverseSort=false;
+            $scope.sortData = function (column){
+                $scope.reverseSort = ($scope.sortColumn== column)? !$scope.reverseSort : false; //If else condition
+                $scope.sortColumn = column;
+            }
+            $scope.getSortClass= function(column){
+                if($scope.sortColumn==column){
+                    return $scope.reverseSort ? 'glyphicon glyphicon-hand-down' : 'glyphicon glyphicon-hand-up';
+                }
+                    return '';
+            }
+            
         });
 
     app.controller("applicationController", function ($scope) {});
