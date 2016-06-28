@@ -57,6 +57,55 @@
 
         })
         .controller("newApplController", function ($scope) {
+            /*this.appForm={};
+            this.submit=function(product){
+                product.appForm.push(this.appForm);
+                this.review={};
+            }*/
+
+            var appForm = {
+                projectTitle: "",
+                nameApplicant: "",
+                emailApplicant: "",
+                departmentApplicant: "",
+                namePI: "",
+                emailPI: "",
+                departmentPI: "",
+                startdate: "",
+                enddate: "",
+                substrate: "",
+                substrateOther: "",
+                safetyVerify: "",
+                commiteeNumber: "",
+                relation: "",
+                summary: "",
+                timeline: "",
+                revision: "",
+                affilation: "",
+                accountNo: "",
+                fundSource: "",
+                otherName: "",
+                otherEmail: "",
+                otherStreet: "",
+                otherCity: "",
+                otherState: "",
+                otherZip: ""
+            }
+            $scope.appForm = appForm;
+            $scope.list = [];
+            $scope.submit = function () {
+                if ($scope.appForm) {
+                    $scope.list.push(this.appForm);
+                    $scope.appForm = '';
+                }
+            };
+            $scope.listb = [];
+            $scope.save=function(){
+                if ($scope.appForm) {
+                    $scope.listb.push(this.appForm);
+                    $scope.appForm = '';
+                }
+            }
 
         })
         .controller("historyController", function ($scope) {
@@ -113,40 +162,4 @@
     app.controller("applicationController", function ($scope) {});
 
 
-
-
-    /* .controller("abcController", function ($scope) {
-        $scope.message = "1234";
-    })
-    .controller("homeController", function ($scope) {
-        $scope.message = "xyz";
-    })
-    .controller("sampleController", function ($scope) {})
-});*/
-
 })();
-
-/*var app = angular.module("phytotron", ["ngRoute"])
-    .config(function ($routeProvider) {
-        $routeProvider
-            .when("/", {
-                templateUrl: "partials/home.html",
-                controller: "abcController"
-            })
-            .when("/home", {
-                templateUrl: "partials/home.html",
-                controller: "homeController"
-            })
-            .when("/sample", {
-                templateUrl: "partials/sample.html",
-                controller: "sampleController"
-            })
-    })
-    .controller("abcController", function ($scope) {
-        $scope.message = "1234";
-    })
-   .controller("homeController", function ($scope) {
-        $scope.message = "xyz";
-    })
-    .controller("sampleController", function ($scope) {})
-});*/

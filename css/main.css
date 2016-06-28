@@ -2,11 +2,12 @@
         padding-top: 116px;
     }
 
-@media (max-width: 979px) {
+@media (max-width: 767px) {
   body {
     padding-top: 58px;
   }
 }
+
 table {
   width: min-width;
 }
@@ -37,6 +38,23 @@ background-color: #222;
     border-color: #337ab7
 }
 
+.alert-dismissible .customclose {
+    position: relative;
+    top: -2px;
+    right: -21px;
+    color: inherit
+}
+
+.customclose {
+    float: right;
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    filter: alpha(opacity=20);
+    opacity: .2
+}
 .panel-custom>.panel-heading+.panel-collapse>.panel-body {
     border-top-color: #337ab7
 }
@@ -48,4 +66,28 @@ background-color: #222;
 
 .panel-custom>.panel-footer+.panel-collapse>.panel-body {
     border-bottom-color: #337ab7
+}
+
+
+  .full button span {
+    background-color: limegreen;
+    border-radius: 32px;
+    color: black;
+  }
+  .partially button span {
+    background-color: orange;
+    border-radius: 32px;
+    color: black;
+  }
+
+
+.ng-invalid.ng-dirty {
+border-color: #FA787E;
+}
+.ng-invalid.ng-pristine {
+border-color: #b4e6ff;
+}
+
+.ng-valid.ng-dirty {
+border-color: #78FA89;
 }
