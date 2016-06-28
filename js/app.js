@@ -21,8 +21,12 @@
                     controller: "newApplController"
                 })
                 .when("/chambers", {
-                    templateUrl: "partials/sample.html",
-                    controller: "sampleController"
+                    templateUrl: "partials/assgnChambers.html",
+                    controller: "chamberController"
+                })
+                .when("/chamberInfo", {
+                    templateUrl: "partials/ChamberInfo.html",
+                    controller: "chamberController"
                 })
         })
         .controller("homeController", function ($scope) {
@@ -107,6 +111,38 @@
                 }
             }
 
+        }).controller("chamberController", function ($scope) {
+            $scope.currChambers = [
+                {
+                    c_id: "A-06",
+                    p_id: "500201",
+                    title: "Sample Project 1",
+                    start: "4/3/2016",
+                    end: "6/6/2016"
+
+            },
+                {
+                    c_id: "B-06",
+                    p_id: "500204",
+                    title: "Sample Project 2",
+                    start: "4/3/2016",
+                    end: "6/6/2016"
+            },
+                {
+                    c_id: "D-06",
+                    p_id: "500201",
+                    title: "Sample Project 1",
+                    start: "4/3/2016",
+                    end: "6/6/2016"
+            },
+                {
+                    c_id: "C-06",
+                    p_id: "500204",
+                    title: "Sample Project 2",
+                    start: "4/3/2016",
+                    end: "6/6/2016"
+            }
+        ];
         })
         .controller("historyController", function ($scope) {
             var historyApps = [
